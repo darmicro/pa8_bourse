@@ -15,7 +15,19 @@
 				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
 				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
 		<![endif]-->
+		<script type="text/javascript">
+			function sendForm(){
+				var nomUser = document.getElementsByName("username")[0].value;
+				var motDePasse = document.getElementsByName("password")[0].value;
+				
+				if (nomUser == null || nomUser == "") {
+					alert("Tout les champs sont obligatoire");
+					return false;
+				}
+ 		}
+		</script>
 	</head>
+	
 <body>
 <div class="container-fluid">
 	<div id="page-login" class="row">
@@ -28,17 +40,27 @@
 					<div class="text-center">
 						<h3 class="page-header">Connexion</h3>
 					</div>
-					<div class="form-group">
-						<label class="control-label">Nom</label>
-						<input type="text" class="form-control" name="username" />
-					</div>
-					<div class="form-group">
-						<label class="control-label">Mot de passe</label>
-						<input type="password" class="form-control" name="password" />
-					</div>
-					<div class="text-center">
-						<a href="../index.html" class="btn btn-primary">Se connecter</a>
-					</div>
+					
+					<form action="controler/connectme.php" method="POST">
+						<div class="form-group">
+							<label class="control-label">Nom</label>
+							<input type="text" class="form-control" name="username" required />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Mot de passe</label>
+							<input type="password" class="form-control" name="password" required />
+						</div>
+						<?php
+						if($_GET["erreur"] == 1)
+							echo '<div class="text-center">
+								  <p>Erreur de connexion.<br>Vérifiez votre nom ou votre mot de passe.</p>
+								  </div>';
+						?>
+						<div class="text-center">
+							<input type="submit" value="Se connecter" class="btn btn-primary">
+						</div>
+					</form>
+					
 				</div>
 			</div>
 		</div>
