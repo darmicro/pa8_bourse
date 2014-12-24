@@ -15,17 +15,6 @@
 				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
 				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
 		<![endif]-->
-		<script type="text/javascript">
-			function sendForm(){
-				var nomUser = document.getElementsByName("username")[0].value;
-				var motDePasse = document.getElementsByName("password")[0].value;
-				
-				if (nomUser == null || nomUser == "") {
-					alert("Tout les champs sont obligatoire");
-					return false;
-				}
- 		}
-		</script>
 	</head>
 	
 <body>
